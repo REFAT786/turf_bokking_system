@@ -10,7 +10,7 @@ RUN npm run build
 FROM php:8.4-apache
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libicu-dev unzip git \
+        libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libicu-dev unzip git ca-certificates \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo_mysql gd zip intl bcmath exif opcache \
     && a2enmod rewrite headers \
