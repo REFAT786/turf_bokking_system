@@ -1,8 +1,8 @@
 # --- Stage 1: build frontend assets (Vite + Tailwind) ---
 FROM node:22-alpine AS assets
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json package-lock.json .npmrc ./
+RUN npm install --no-audit --no-fund
 COPY . .
 RUN npm run build
 
